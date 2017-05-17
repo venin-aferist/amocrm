@@ -1,0 +1,55 @@
+<form action="" method="post" id="ae-realty-document-form">
+    <input type="hidden" name="contactId" value="{{ contact }}">
+    <input type="hidden" name="leadId" value="{{ lead }}">
+    <input type="hidden" name="apartment" value="{{ id }}">
+    <input type="hidden" name="template" value="{{ template }}">
+    <div style="margin-bottom: 15px;">
+        <label>Срок</label>
+        <input type="text" name="days" value="{{ days }}"/>
+    </div>
+    <div>
+        <label>Дата договора</label>
+        <input type="date" name="date_agreement" value="{{ date_agreement }}"/>
+    </div>
+    <div>
+        <label>Сумма наличными</label>
+        <input type="text" name="cash_sum" value="{{ cash_sum }}"/>
+    </div>
+    <div>
+        <label>Сумма кредита</label>
+        <input type="text" name="credit_sum" value="{{ credit_sum }}"/>
+    </div>
+    <div style="display: {{ display_data }}">
+        <label>Дата ипотечного договора</label>
+        <input type="date" name="date_agreement_mortgage" value="{{ date_agreement_mortgage }}"/>
+    </div>
+    <div>
+        <label>Номер ипотечного договора</label>
+        <input type="text" name="agreement_mortgage" value="{{ agreement_mortgage }}"/>
+    </div>
+    <div>
+        <button>Сохранить</button>
+    </div>
+</form>
+<style>
+    #ae-realty-document-form div{
+        margin-bottom: 15px;
+    }
+
+    #ae-realty-document-form div label {
+        width: 135px;
+        display: inline-block;
+    }
+
+    #ae-realty-document-form div input, #ae-realty-document-form div button {
+        border: 1px solid black;
+        border-radius: 3px;
+        height: 25px;
+        width: 200px;
+    }
+
+    #ae-realty-document-form div button {
+        background-color: white;
+        cursor: pointer;
+    }
+</style>

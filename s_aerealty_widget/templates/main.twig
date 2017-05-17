@@ -1,0 +1,652 @@
+<div class="container">
+    <!--span id="pdf-save">PDF</span-->
+    <div class="filter">
+      <a class="filter-tab">Фильтр</a>
+      <div class="filter-form">
+        <a class="filter-tab-open">Фильтр</a>
+        <form action="" id="search-form">
+          <div class="filter-inner">
+            <div class="filter-inner-container">
+              <div class="filter-row">
+                <div class="filter-col-12 select-interval">
+                  <label for="filter-floor">
+                  Этаж: 
+                  </label>
+                  <select name="floor_from" class="select-arrow-filter">
+                    <option value="0">Не важно</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                  </select> -
+                    <select name="floor_to" class="select-arrow-filter">
+                        <option value="0">Не важно</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                    </select>
+                </div>
+              </div>
+              <div class="filter-row">
+                  <div class="filter-col-4">
+                      <label for="filter-type" class="filter-col-4">
+                          Подъезд:
+                      </label>
+                      <select name="porch" id="filter-type" class="select-arrow-filter">
+                          <option value="0">Не важно</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                      </select>
+                  </div>
+                  <div class="filter-col-4">
+                      <label for="filter-type" class="filter-col-4">
+                          Корпус:
+                      </label>
+                      <select name="housing" id="filter-type" class="select-arrow-filter">
+                          <option value="0">Не важно</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                      </select>
+                  </div>
+              </div>
+              <div class="filter-name second-filter-name">
+                Квартира
+              </div>
+              <div class="filter-row filter-row-double">
+                <div class="filter-col-6 select-interval">
+                      <label class="label-12" for="filter-model">
+                          Кол-во комнат:
+                      </label>
+                      <select name="count_room" class="select-arrow-filter" id="filter-model">
+                          <option value="0" selected>Не важно</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                      </select>
+                  </div>
+                  <div class="filter-col-6">
+                      <label class="label-12" for="filter-model">
+                          Номер:
+                      </label>
+                      <input type="text" value="0" class="flat-s-input" name="room_number">
+                  </div>
+              </div>
+              <div class="filter-row">
+                <div class="filter-col-12">
+                  <label for="flat-s-from">
+                  Площадь квартиры: 
+                  </label>
+                  <input type="text" value="0" class="flat-s-input" name="area_from" id="flat-s-from"> —
+                 <input type="text" value="0" class="flat-s-input" name="area_to" id="flat-s-to">
+                 м<sup>2</sup>
+                </div>
+              </div>
+              <div class="filter-row filter-row-double">
+                <div class="filter-col-6">
+                  <label class="label-12" for="filter-price-from">
+                  Стоимость:
+                  </label>
+                  <input type="text" value="0" class="flat-number-input price-input" name="total_price_from" id="filter-price-from"> —
+                 <input type="text" value="0" class="flat-number-input price-input" name="total_price_to" id="filter-price-to"> &#8381;
+                </div>
+              </div>
+              <div class="filter-row">
+                <div class="filter-col-12">
+                  <label for="filter-status">
+                  Статус: 
+                  </label>
+                  <select name="status" class="select-arrow-filter" id="filter-status">
+                    <option value="free" selected>В продаже</option>
+                    <option value="sold">Продан</option>
+                    <option value="booked">Бронь</option>
+                    <option value="hold">Снят с продажи</option>
+                  </select>
+                </div>
+              </div>
+              <div class="line-row">
+              </div>
+              <div class="filter-row">
+                <div class="filter-col-12">
+                 <div class="filter-buttons">
+                  <button type="submit" class="save" id="search-button">Применить</button>
+                  <button type="reset" class="reset">Отменить</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+              </div>
+        </form>
+      </div>
+    </div>
+    <form>
+          <table class="table">
+
+            <tr>
+                <td colspan="9">
+                    <div class="add-flat" {% if role == 'admin' %} style="display:block" {% endif %}>
+                        <a href="#" >
+                            <span class="plus"><span class="plus-icon">+</span></span>
+                        </a>
+                        <a href="#" class="add-flat--link">Импорт</a>
+                    </div>
+                </td>
+                <td colspan="1">
+                    <span id="export-pdf" class="pdf-icon"></span>
+                    <span id="export-excel" class="excel-icon"></span>
+                </td>
+            </tr>
+            <tr class="row head-row">
+                <td class="cell" colspan="3">Дом</td>
+                <td class="cell" colspan="2">№№ Квартир</td>
+                <td class="cell sortable" rowspan="2" data-item="count_room">Ком.</td>
+                <td class="cell sortable" rowspan="2" data-item="area">S, м<sup>2</sup></td>
+                <td class="cell sortable" rowspan="2" data-item="price">Цена за м<sup>2</sup> (&#8381;)</td>
+                <td class="cell sortable" rowspan="2" data-item="total_price">Стоимость (&#8381;)</td>
+                <td class="cell sortable" rowspan="2" data-item="status">Статус</td>
+            </tr>
+            <tr class="row head-row">
+                <td class="cell sortable" data-item="housing">кор.</td>
+                <td class="cell sortable" data-item="porch">сек.</td>
+                <td class="cell sortable" data-item="floor">этаж</td>
+                <td class="cell sortable" data-item="room_number">уник.</td>
+                <td class="cell floor-cell sortable" data-item="room_number_in_floor">на этаже</td>
+            </tr>
+            <tbody id="content-body"></tbody>
+        </table>
+
+
+    </form>
+    <form action="https://s.aerealty.ru/apartment/import" method="post" id="import-form" enctype="multipart/form-data">
+        <input type="file" name="import" id="import-field" style="display: none" />
+    </form>
+  </div> 
+
+  <script type="text/javascript">
+  
+  $(document).ready(function() {
+
+      /**
+       * Check allow change status for current role
+       *
+       * @param {string} status
+       * @returns {string}
+       */
+    var disableByRole = function(status) {
+        var has_disabled = false,
+            role = window.localStorage.getItem('ae_realty_role');
+        switch(status) {
+            case 'free':
+                has_disabled = false;
+                break;
+            case 'booked':
+                has_disabled = false;
+                break;
+            case 'ibooked':
+                has_disabled = false;
+                break;
+            case 'sold':
+                has_disabled = role == 'manager';
+                break;
+            case 'hold':
+                has_disabled = role != 'admin';
+                break;
+            case 'register':
+                has_disabled = role != 'admin';
+                break;
+
+        }
+
+        return has_disabled ? 'disabled="disabled"' : '';
+    };
+
+    var show_error = function(message) {
+        alert(message);
+    };
+
+    var can_registry = function() {
+        var reg_number = $('span:contains("№ регистрации")').closest('.linked-form__field').find('input').val(),
+            reg_date = $('span:contains("Дата регистрации")').closest('.linked-form__field').find('input').val();
+
+        return (reg_date.length > 0 && reg_number > 0);
+    };
+
+    var has_disabled = function(is_disable) {
+        return (is_disable) ? 'disabled="disabled"' : '';
+    }
+
+    var render = function(data) {
+      var html = '',
+          ids  = [],
+          can_registration = has_disabled(!can_registry());
+
+      data.forEach(function(item) {
+       ids.push(item['id']);
+       html += '<tr class="row" data-id="' + item['id'] +'" title="' + item['deal_name'] + '">\
+                <td class="cell">' + item['housing'] + '</td>\
+                <td class="cell">' + item['porch'] + '</td>\
+                <td class="cell">' + item['floor'] + '</td>\
+                <td class="cell">' + item['room_number'] + '</td>\
+                <td class="cell">' + item['room_number_in_floor'] + '</td>\
+                <td class="cell">' + item['count_room'] + '</td>\
+                <td class="cell">' + item['area'] + '</td>\
+                <td class="cell">' + Number(item['price']).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,') + '</td>\
+                <td class="cell">' + Number(item['total_price']).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,') + ' </td>\
+                <td class="cell">\
+                <select name="status-1" class="select-arrow color-select" ' + disableByRole(item['status']) + '>';
+
+           if(item['status'] == 'free'){
+               html += '<option value="free" selected>В продаже</option>\
+                      <option value="booked">Бронь</option>\
+                      <option value="ibooked">Ипотечная бронь</option>\
+                      <option value="register" ' + can_registration + '>Зарегистрирован</option>\
+                      <option value="sold">Продан</option>\
+                      <option value="hold">Снят с продажи</option>';
+           }
+
+          if(item['status'] == 'booked'){
+              html += '<option value="free">В продаже</option>\
+                  <option value="booked" selected data-date="'+ item['booked_for'] +'">Бронь ('+ item['booked_for'] +')</option>\
+                  <option value="ibooked">Ипотечная бронь</option>\
+                  <option value="register" ' + can_registration + '>Зарегистрирован</option>\
+                  <option value="sold">Продан</option>\
+                  <option value="hold">Снят с продажи</option>';
+          }
+
+          if(item['status'] == 'sold'){
+              html += '<option value="free">В продаже</option>\
+                  <option value="booked">Бронь</option>\
+                  <option value="ibooked">Ипотечная бронь</option>\
+                  <option value="register" ' + can_registration + '>Зарегистрирован</option>\
+                  <option value="sold" selected>Продан</option>\
+                  <option value="hold">Снят с продажи</option>';
+          }
+
+          if(item['status'] == 'hold'){
+              html += '<option value="free">В продаже</option>\
+                  <option value="booked">Бронь</option>\
+                  <option value="ibooked">Ипотечная бронь</option>\
+                  <option value="register" ' + can_registration + '>Зарегистрирован</option>\
+                  <option value="sold">Продан</option>\
+                  <option value="hold" selected>Снят с продажи</option>';
+          }
+
+          if(item['status'] == 'register'){
+              html += '<option value="free">В продаже</option>\
+                  <option value="booked">Бронь</option>\
+                  <option value="ibooked">Ипотечная бронь</option>\
+                  <option value="register" selected>Зарегистрирован</option>\
+                  <option value="sold">Продан</option>\
+                  <option value="hold">Снят с продажи</option>';
+          }
+
+          if(item['status'] == 'ibooked'){
+              html += '<option value="free">В продаже</option>\
+                  <option value="booked">Бронь</option>\
+                  <option value="ibooked" selected data-date="'+ item['booked_for'] +'">Ипотечная бронь ('+ item['booked_for'] +')</option>\
+                  <option value="register" ' + can_registration + '>Зарегистрирован</option>\
+                  <option value="sold">Продан</option>\
+                  <option value="hold" selected>Снят с продажи</option>';
+          }
+
+          html +=         '</select>\
+                </td>\
+                </tr>';
+
+      });
+
+      $('#content-body').ready(function(){
+          $('#content-body').html(html);
+      });
+      window.localStorage.setItem('ids', ids);
+    };
+
+    $('#search-form').on('submit', function(event) {
+      event.stopPropagation();
+      event.preventDefault();
+
+      var params = {};
+      $(this).serializeArray().forEach(function(item) {
+        if(item.value != 0) {
+          params[item.name] = item.value
+        }
+      });
+//      $.get('https://base.timpark.ru/apartment/search', params, function(data) {
+      window.localStorage.setItem('ae_realty_search_params', JSON.stringify(params));
+      $.get('https://s.aerealty.ru/apartment/search', params, function(data) {
+          $(".container").find('.filter').removeClass('active');
+          $(".filter-inner-container").find(".filter-result").remove();
+          render(data);
+      }, 'json');
+      return false;
+    });
+
+    $('#search-form input, #search-form select').on('change', function(event) {
+      var self = this,
+          timeout = 0,
+          params = {};
+
+
+      if($(this).closest('.radio-row').length > 0) {
+        timeout = 100;
+      }
+
+      event.stopPropagation();
+      event.preventDefault();
+
+      setTimeout(function(){
+
+        $('#search-form').serializeArray().forEach(function(item) {
+          if(item.value != 0) {
+            params[item.name] = item.value
+          }
+        });
+
+        params['result_count'] = 1;
+//        $.get('https://base.timpark.ru/apartment/search', params, function(data) {
+        $.get('https://s.aerealty.ru/apartment/search', params, function(data) {
+
+          $(".filter-inner-container").find(".filter-result").remove();
+          $(self).parents(".filter-row").append("<div class='filter-result'>Найдено "+ data +". <a href='#' class='filter-res-link'>Показать</a></div>");
+          $(".filter-res-link").on('click', function() {
+            $(".filter-inner-container").find(".filter-result").remove();
+            $(".container").find('.filter').removeClass('active');
+            $('#search-form').trigger('submit');
+          });
+
+        }, 'json');
+      }, timeout);
+      return false;
+    });
+
+//    $.get('https://base.timpark.ru/apartment', function(data) {
+    $.get('https://s.aerealty.ru/apartment', function(data) {
+      setTimeout(function(){
+        render(data);
+      }, 200)
+    }, 'json');
+
+
+
+    $('.add-flat--link').on('click', function(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        $('#import-field').trigger('click');
+    });
+
+
+    $('#import-field').on('change', function(event) {
+        $('#import-form').submit();
+    });
+
+    $('#export-excel').on('click', function(){
+       var ids =  window.localStorage.getItem('ids').split(',');
+       location.href = 'https://s.aerealty.ru/apartment/export.xslx?ids=' + ids;
+    });
+
+    $('#export-pdf').on('click', function(){
+        var ids =  window.localStorage.getItem('ids').split(',');
+        location.href = 'https://s.aerealty.ru/apartment/export.pdf?ids=' + ids;
+    });
+
+    $(document).off('change', ".color-select");
+    $(document).on('change', ".color-select", function() {
+      var value = $(this).val(),
+          name  = $(this).attr('name');
+
+      switch (value) {
+          case "hold":
+              $(this).removeClass("sold");
+              $(this).removeClass("reserved");
+              $(this).removeClass("free");
+              $(this).addClass("hold");
+              $(this).parents(".cell").find('.datepicker-wrap').remove();
+              var id = $(this).closest('.row').data('id'),
+                      params = {
+                          id: id,
+                          status: 'hold'
+                      };
+//            $.get('https://base.timpark.ru/apartment/status', params, function(data) {
+              $.get('https://s.aerealty.ru/apartment/status', params, function(data) {
+                  if(data.error) {
+                      show_error(data.error);
+                  }
+              }, 'json');
+              break;
+        case "free":
+          $(this).removeClass("sold");
+          $(this).removeClass("reserved");
+          $(this).removeClass("hold");
+          $(this).addClass("sell");
+          $(this).parents(".cell").find('.datepicker-wrap').remove();
+            var id = $(this).closest('.row').data('id'),
+                    params = {
+                        id: id,
+                        status: 'free'
+                    };
+//            $.get('https://base.timpark.ru/apartment/status', params, function(data) {
+            $.get('https://s.aerealty.ru/apartment/status', params, function(data) {
+                if(data.error) {
+                    show_error(data.error);
+                }
+            }, 'json');
+          break;
+      case "register":
+          $(this).removeClass("sold");
+          $(this).removeClass("reserved");
+          $(this).removeClass("hold");
+          $(this).addClass("sell");
+          $(this).parents(".cell").find('.datepicker-wrap').remove();
+          var id = $(this).closest('.row').data('id'),
+                  params = {
+                      id: id,
+                      status: 'register',
+                      lead: location.pathname.split('/')[3],
+                      deal_name: $('#person_name').val()
+                  };
+//            $.get('https://base.timpark.ru/apartment/status', params, function(data) {
+          $.get('https://s.aerealty.ru/apartment/status', params, function(data) {
+              if(data.error) {
+                  show_error(data.error);
+              }
+          }, 'json');
+          break;
+        case "sold":
+          $(this).removeClass("sell");
+          $(this).removeClass("reserved");
+          $(this).removeClass("free");
+
+          $(this).addClass("sold");
+          $(this).parents(".cell").find('.datepicker-wrap').remove();
+            var id = $(this).closest('.row').data('id'),
+                    params = {
+                        id: id,
+                        status: 'sold'
+                    };
+//            $.get('https://base.timpark.ru/apartment/status', params, function(data) {
+            $.get('https://s.aerealty.ru/apartment/status', params, function(data) {
+                if(data.error) {
+                    show_error(data.error);
+                }
+            }, 'json');
+          break;
+        case "booked":
+          $(this).removeClass("sold");
+          $(this).removeClass("sell");
+          $(this).addClass("reserved");
+          //календарь
+          $(this).parent(".cell").append("<span class='datepicker-wrap'>до <input type='text' class='datepicker' id='" + name +"-date'></span>");
+
+          $(".datepicker").datepicker({
+            inline: true,
+            monthNames: ["Январь", "Февраль", "Март", "Апрель",
+            "Май", "Июнь", "Июль", "Август", "Сентябрь",
+            "Октябрь", "Ноябрь", "Декабрь"],
+            dayNamesMin: ["Вс","Пн","Вт","Ср","Чт","Пт","Сб"],
+            firstDay: 1,
+            dateFormat: 'dd.mm.yy'
+          });
+
+          break;
+          case "ibooked":
+            $(this).removeClass("sold");
+            $(this).removeClass("sell");
+            $(this).addClass("reserved");
+            //календарь
+            $(this).parent(".cell").append("<span class='datepicker-wrap'>до <input type='text' class='datepicker' id='" + name +"-date'></span>");
+
+            $(".datepicker").datepicker({
+              inline: true,
+              monthNames: ["Январь", "Февраль", "Март", "Апрель",
+                  "Май", "Июнь", "Июль", "Август", "Сентябрь",
+                  "Октябрь", "Ноябрь", "Декабрь"],
+              dayNamesMin: ["Вс","Пн","Вт","Ср","Чт","Пт","Сб"],
+              firstDay: 1,
+              dateFormat: 'dd.mm.yy'
+            });
+
+            break;
+      } 
+    });
+
+    $('#content-body').on('change', '.datepicker', function(event){
+       var id = $(this).closest('.row').data('id'),
+           self = this,
+           params = {
+               id: id,
+               status: $(this).closest('.cell').find('select').val(),
+               date: $(this).val(),
+               lead: location.pathname.split('/')[3],
+               deal_name: $('#person_name').val()
+           };
+
+//        $.get('https://base.timpark.ru/apartment/status', params, function(data) {
+        $.get('https://s.aerealty.ru/apartment/status', params, function(data) {
+            if(data.error) {
+                show_error(data.error);
+            } else {
+                var row = $(self).closest(".cell")
+                row.find('.datepicker-wrap').remove();
+                row.find('select option:selected').text('Бронь (' + params.date + ')');
+            }
+        }, 'json');
+    });
+
+    $('.sortable').on('click', function(event) {
+        var params = JSON.parse(window.localStorage.getItem('ae_realty_search_params')) || {"status":"free","order":"desc","sort_by":"price"},
+            sort_by = $(this).data('item');
+
+        if(params['sort_by'] && params['sort_by'] == sort_by) {
+            params['order'] = (params['order'] == 'desc') ? 'asc' : 'desc';
+        } else {
+            params['order'] = 'desc';
+        }
+        params['sort_by'] = sort_by;
+        $.get('https://s.aerealty.ru/apartment/search', params, function(data) {
+            window.localStorage.setItem('ae_realty_search_params', JSON.stringify(params));
+            render(data);
+        }, 'json');
+        console.log(params);
+    });
+
+    $(".filter-tab").on('click', function() {
+      $(this).parents(".container").find(".filter").addClass('active');
+    });
+    $(".filter-tab-open").on('click', function() {
+      $(this).parents(".container").find(".filter").removeClass('active');
+      $(".filter-inner-container").find(".filter-result").remove();
+    });
+
+  
+    $(".row").on('click', function() {
+        if ($(".row").hasClass("selected")) {
+            $(".row").removeClass("selected");
+        } 
+        if ($(this).hasClass("selected")) {
+            $(this).removeClass("selected");
+        } else {
+            $(this).addClass("selected")
+        }
+    });
+
+    $(".row input").on('click', function() {
+        if ($(this).parents(".table").find(".controls").length) {
+          $(this).parents(".table").find(".controls").remove();
+          $(this).parent(".cell").append( "<div class='controls'><div class='save'>Сохранить</div><div class='update'></div><div class='cancel'></div></div>" );
+            
+        } else {
+            $(this).parent(".cell").append( "<div class='controls'><div class='save'><span>Сохранить</span></div><div class='update'></div><div class='cancel'></div></div>" );
+    }
+    $(".controls .cancel").on('click', function() {
+      if ($(".controls").find(".selected").length) {
+        $(".controls").find(".selected").removeClass("selected");
+      }
+
+      if ($(this).hasClass("selected")) {
+        $(this).removeClass("selected");
+      } else {
+        $(this).addClass("selected")
+      }
+
+      $(this).parent(".controls").remove();
+    });
+
+    $(".controls .save").on('click', function() {
+      if ($(".controls").find(".selected").length) {
+        $(".controls").find(".selected").removeClass("selected");
+      }
+
+      if ($(this).hasClass("selected")) {
+        $(this).removeClass("selected");
+      } else {
+        $(this).addClass("selected")
+      }
+    });
+
+     $(".controls .update").on('click', function() {
+      if ($(".controls").find(".selected").length) {
+        $(".controls").find(".selected").removeClass("selected");
+      }
+
+      if ($(this).hasClass("selected")) {
+        $(this).removeClass("selected");
+      } else {
+        $(this).addClass("selected")
+      }
+    });
+  });
+});
+
+ </script>  

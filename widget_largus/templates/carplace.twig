@@ -1,0 +1,297 @@
+<div class="container">
+    <!--span id="pdf-save">PDF</span-->
+    <div class="filter">
+      <a class="filter-tab">Фильтр</a>
+      <div class="filter-form">
+        <a class="filter-tab-open">Фильтр</a>
+        <form action="" id="search-form-carplace">
+          <div class="filter-inner">
+            <div class="filter-inner-container">
+                        <!-- Тип -->
+              <div class="filter-row">
+                <div class="filter-col-12 select-interval">
+                  <label for="filter-floor">
+                  Тип: 
+                  </label>
+                    <select name="type" class="select-arrow-filter">
+                        <option value="">Не важно</option>
+                        <option value="независимое">независимое</option>
+                        <option value="зависимое">зависимое</option>
+                    </select>
+                </div>
+              </div>
+              <div class="filter-name second-filter-name">
+                Машиноместо
+              </div>
+                            <!-- Площадь -->
+              <div class="filter-row">
+                <div class="filter-col-12">
+                  <label for="flat-s-from">
+                  Площадь: 
+                  </label>
+                  <input type="text" value="0" class="flat-s-input" name="area_from" id="flat-s-from"> —
+                 <input type="text" value="0" class="flat-s-input" name="area_to" id="flat-s-to">
+                 м<sup>2</sup>
+                </div>
+              </div>
+                            <!-- Стоимость m2 -->
+              <div class="filter-row filter-row-double">
+                <div class="filter-col-6">
+                  <label class="label-12" for="filter-price-from">
+                  Стоимость:
+                  </label>
+                  <input type="text" value="0" class="flat-number-input price-input" name="price_from" id="filter-price-from"> —
+                 <input type="text" value="0" class="flat-number-input price-input" name="price_to" id="filter-price-to"> &#8381;
+                </div>
+              </div>
+                            <!-- Статус -->
+                <div class="filter-row">
+                    <div class="filter-col-12">
+                        <label for="filter-status">
+                            Статус:
+                        </label>
+                        <select name="status" class="select-arrow-filter" id="filter-status">
+                            <option value="1">В продаже</option>
+                            <option value="0">Снят с продажи</option>
+                        </select>
+                    </div>
+                </div>
+              <div class="line-row">
+              </div>
+              <div class="filter-row">
+                <div class="filter-col-12">
+                 <div class="filter-buttons">
+                  <button type="submit" class="save" id="search-button">Применить</button>
+                  <button type="reset" class="reset">Отменить</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <form>
+          <table class="table">
+            <tr class="row head-row">
+                <td class="cell">этаж</td>
+                <td class="cell">уникальный № машиноместа</td>
+                <td class="cell">тип</td>
+                <td class="cell">площадь</td>
+                <td class="cell">стоимость</td>
+                <td class="cell">Статус</td>
+            </tr>
+            <tbody id="content-body-carplace"></tbody>
+        </table>
+        <div class="add-flat" {% if is_admin %} style="display:block" {% endif %}>
+        <a href="#" >
+            <span class="plus"><span class="plus-icon">+</span></span>
+            </a>
+            <a href="#" class="add-flat--link">Импорт</a>
+        </div>
+
+    </form>
+    <form action="https://largus.istupid.ru/car_place/import" method="post" id="import-form" enctype="multipart/form-data">
+        <input type="file" name="import" id="import-field" style="display: none" />
+    </form>
+  </div> 
+
+  <script type="text/javascript">
+  
+  $(document).ready(function() {
+
+    var is_admin = localStorage.getItem('is_admin');
+
+    var render = function(data) {
+      var html = '';
+
+      data.forEach(function(item) {
+       html += '<tr class="row" data-id="' + item['id'] +'" title="' + item['deal_name'] + '">\
+                <td class="cell">' + item['floor'] + '</td>\
+                <td class="cell">' + item['unique_num'] + '</td>\
+                <td class="cell">' + item['type'] + '</td>\
+                <td class="cell">' + item['area'] + '</td>\
+                <td class="cell">' + Number(item['price']).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,') + '</td>\
+                <td class="cell">\
+                  <select name="status-1" class="select-arrow color-select-carplace">';
+                  if(item['status'] == 0){
+                      html += '<option value="1">В продаже</option>\
+                        <option value="0" selected>Продан</option>';
+                  }else if(item['status'] == 1){
+                      html += '<option value="1" selected>В продаже</option>\
+                        <option value="0">Продан</option>';
+                  }          
+                html +=         '</select>\
+                </td>\
+                </tr>';
+      });
+
+      $('#content-body-carplace').ready(function(){
+          $('#content-body-carplace').html(html);
+      })
+    };
+
+     // Фильтр
+    $('#search-form-carplace').on('submit', function(event) {
+      event.stopPropagation();
+      event.preventDefault();
+
+      var params = {};
+      $(this).serializeArray().forEach(function(item) {
+        if(item.value != 0) {
+          params[item.name] = item.value
+        }
+      });
+//      $.get('https://base.timpark.ru/car_place/search', params, function(data) {
+      $.get('https://largus.istupid.ru/car_place/search', params, function(data) {
+          $(".container").find('.filter').removeClass('active');
+          $(".filter-inner-container").find(".filter-result").remove();
+          render(data);
+      }, 'json');
+      return false;
+    });
+
+    // Фильтр инпуты
+    $('#search-form-carplace input, #search-form-carplace select').on('change', function(event) {
+      var self = this,
+          timeout = 0,
+          params = {};
+
+
+      if($(this).closest('.radio-row').length > 0) {
+        timeout = 100;
+      }
+
+      event.stopPropagation();
+      event.preventDefault();
+
+      setTimeout(function(){
+
+        $('#search-form-carplace').serializeArray().forEach(function(item) {
+          if(item.value != 0) {
+            params[item.name] = item.value
+          }
+        });
+
+        params['result_count'] = 1;
+        $.get('https://largus.istupid.ru/car_place/search', params, function(data) {
+
+          $(".filter-inner-container").find(".filter-result").remove();
+          $(self).parents(".filter-row").append("<div class='filter-result'>Найдено "+ data +". <a href='#' class='filter-res-link'>Показать</a></div>");
+          $(".filter-res-link").on('click', function() {
+            $(".filter-inner-container").find(".filter-result").remove();
+            $(".container").find('.filter').removeClass('active');
+            $('#search-form-carplace').trigger('submit');
+          });
+
+        }, 'json');
+      }, timeout);
+      return false;
+    });
+
+    $.get('https://largus.istupid.ru/car_place', function(data) {
+      setTimeout(function(){
+        render(data);
+      }, 200)
+    }, 'json');
+
+
+    // Импорт
+    $('.add-flat--link').on('click', function(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        $('#import-field').trigger('click');
+    });
+
+        // смена статуса
+    $(document).off('change', ".color-select-carplace");
+    $(document).on('change', ".color-select-carplace", function(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        var value = $(this).find(":selected").val();
+          // отправляю в бэк
+        var id = $(this).closest('.row').data('id'),
+                params = {
+                  id: id, 
+                  status: value,
+                  lead: location.pathname.split('/')[3],
+                };
+        $.get('https://largus.istupid.ru/car_place/status', params, function(data) {}, 'json');
+    });
+
+
+    $('#import-field').on('change', function(event) {
+        $('#import-form').submit();
+    });
+
+    // скрытие показ фильтра
+    $(".filter-tab").on('click', function() {
+      $(this).parents(".container").find(".filter").addClass('active');
+    });
+    
+    $(".filter-tab-open").on('click', function() {
+      $(this).parents(".container").find(".filter").removeClass('active');
+      $(".filter-inner-container").find(".filter-result").remove();
+    });
+
+  
+    $(".row").on('click', function() {
+        if ($(".row").hasClass("selected")) {
+            $(".row").removeClass("selected");
+        } 
+        if ($(this).hasClass("selected")) {
+            $(this).removeClass("selected");
+        } else {
+            $(this).addClass("selected")
+        }
+    });
+
+    $(".row input").on('click', function() {
+        if ($(this).parents(".table").find(".controls").length) {
+          $(this).parents(".table").find(".controls").remove();
+          $(this).parent(".cell").append( "<div class='controls'><div class='save'>Сохранить</div><div class='update'></div><div class='cancel'></div></div>" );
+            
+        } else {
+            $(this).parent(".cell").append( "<div class='controls'><div class='save'><span>Сохранить</span></div><div class='update'></div><div class='cancel'></div></div>" );
+    }
+    $(".controls .cancel").on('click', function() {
+      if ($(".controls").find(".selected").length) {
+        $(".controls").find(".selected").removeClass("selected");
+      }
+
+      if ($(this).hasClass("selected")) {
+        $(this).removeClass("selected");
+      } else {
+        $(this).addClass("selected")
+      }
+
+      $(this).parent(".controls").remove();
+    });
+
+    $(".controls .save").on('click', function() {
+      if ($(".controls").find(".selected").length) {
+        $(".controls").find(".selected").removeClass("selected");
+      }
+
+      if ($(this).hasClass("selected")) {
+        $(this).removeClass("selected");
+      } else {
+        $(this).addClass("selected")
+      }
+    });
+
+     $(".controls .update").on('click', function() {
+      if ($(".controls").find(".selected").length) {
+        $(".controls").find(".selected").removeClass("selected");
+      }
+
+      if ($(this).hasClass("selected")) {
+        $(this).removeClass("selected");
+      } else {
+        $(this).addClass("selected")
+      }
+    });
+  });
+});
+
+ </script>  

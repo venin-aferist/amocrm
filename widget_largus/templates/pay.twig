@@ -1,0 +1,29 @@
+<div class="pay-popup">
+  <form class="pay-popup__form" action="https://largus.istupid.ru/document" method="get" id="pay-form" enctype="multipart/form-data">
+  <div class="pay-popup__wrap">
+  <label class="pay-popup__label" for="pay">Тип оплаты:</label>
+  <select class="pay-popup__select" name="pay" id="pay" placeholder="Тип оплаты">
+    <option value="0" selected>100%</option>
+    <option value="1">50%/50%/12</option>
+    <option value="2">30%/70%/6</option>
+  </select>
+  </div>
+  <div class="pay-popup__wrap">
+    <label class="pay-popup__label" for="discount">Скидка:</label>
+    <input class="pay-popup__input" type="text" name="discount" id="discount" placeholder="в %"/>
+    <input class="pay-popup__input" type="hidden" name="contact" value="{{ contact }}"/>
+    <input class="pay-popup__input" type="hidden" name="lead" value="{{ lead }}"/>
+    <input class="pay-popup__input" type="hidden" name="apartment" value="{{ apartment }}"/>
+  </div>
+  <div class="pay-popup__wrap">
+    <button class="pay-popup__button button-input button-input_add button-input_blue" type="submit">ОК</button>
+  </div>
+  </form>
+</div> 
+
+
+<script type="text/javascript">
+
+
+</script>
+

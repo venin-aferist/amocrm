@@ -1,0 +1,29 @@
+{
+  "widget":{
+    "name": "widget.name",
+    "description": "widget.description",
+    "short_description": "widget.short_description",
+    "code": "d_invest_aerealty",
+    "secret_key": "eb9e7a11903fa62de08cb55c6bcba8cbad06bf63864c474b7c8d728a729da893",
+    "version": "1.0.1",
+    "interface_version": 2,
+    "init_once": false,
+    "locale":[
+      "ru",
+      "en"
+    ],
+    "installation": true
+  },
+  "locations":[
+    "everywhere",
+    "settings"
+  ],
+  "settings":{
+    "login":{
+      "name": "settings.login",
+      "type": "text",
+      "required": false
+    }
+  }
+}
+

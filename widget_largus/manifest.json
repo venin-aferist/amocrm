@@ -1,0 +1,39 @@
+{
+  "widget":{
+    "name": "widget.name",
+    "description": "widget.description",
+    "short_description": "widget.short_description",
+    "code": "ltest",
+    "secret_key": "33ceca002f890a9f5474900b6df64ed95f6f81dd11b151b34326edb4f6ccceb4",
+    "version": "1.0.20",
+    "interface_version": 2,
+    "init_once": false,
+    "locale":[
+      "ru",
+      "en"
+    ],
+    "installation": true
+  },
+  "locations":[
+    "lcard-0",
+    "settings"
+  ],
+  "settings":{
+    "login":{
+      "name": "settings.login",
+      "type": "text",
+      "required": true
+    },
+    "api_key":{
+      "name": "settings.api_key",
+      "type": "text",
+      "required": true
+    },
+    "account":{
+      "name": "settings.account",
+      "type": "text",
+      "required": true
+    }
+  }
+}
+
